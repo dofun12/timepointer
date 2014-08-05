@@ -3,6 +3,7 @@ package com.example.workingtime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,7 +35,6 @@ public class MainActivity extends Activity {
 			JSONObject obj = new JSONObject();
 			try {
 				obj.put("ra", "654002");
-
 				obj.put("data1", "07/07/2014 00:00");
 				obj.put("data2", new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date()));
 				return PostGetHelper.postJSON(obj.toString(),"http://perseu1.eniac.com.br/androidHandler/android/jersey/meutempo");
@@ -47,7 +47,8 @@ public class MainActivity extends Activity {
 		protected void onPostExecute(String results) {
 			if (results != null) {
 				try {
-					JSONObject obj = new JSONObject(results);
+					JSONArray obj = new JSONArray(results);
+					
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
