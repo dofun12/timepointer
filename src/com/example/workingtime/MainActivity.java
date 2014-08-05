@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		new LongRunningGetIO().execute();
 	}
 
 	@Override
@@ -48,7 +49,6 @@ public class MainActivity extends Activity {
 				try {
 					JSONObject obj = new JSONObject(results);
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
